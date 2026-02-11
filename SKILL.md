@@ -4,16 +4,18 @@ description: >-
   This skill should be used when the user asks to "recommend a model",
   "推薦模型", "哪個模型適合", "which model should I use",
   "模型比較", "model comparison", "最新模型有哪些",
-  "我要做 X 用什麼模型", mentions choosing an LLM, or discusses
-  selecting AI models for specific tasks.
+  "我要做 X 用什麼模型", "推薦 CLI", "哪個 CLI 好用",
+  mentions choosing an LLM or coding CLI tool, or discusses
+  selecting AI models or CLI tools for specific tasks.
 version: 0.1.0
 argument-hint: <task description or "update" to refresh catalog>
 ---
 
 # Model Mentor
 
-Recommend the most cost-effective LLM model for a given task.
+Recommend the most cost-effective LLM model or coding CLI tool for a given task.
 Recommendations balance capability, price, speed, and task fit — not just raw benchmarks or lowest cost.
+Covers both API models (for building applications) and CLI tools (for developer workflows).
 
 ## Core Philosophy
 
@@ -84,6 +86,20 @@ When the user asks to compare specific models (e.g., "Claude Sonnet vs GPT-4o"):
    - Best use cases
 4. End with a situational recommendation, not a blanket winner.
 
+### Mode D: CLI Tool Recommendation
+
+When the user asks about coding CLI tools (e.g., "我該用哪個 CLI", "Claude Code 還是 Codex"):
+
+1. **Read the CLI comparison** at `references/cli-comparison.md`.
+2. **Identify the user's primary workflow**:
+   - Interactive coding with frequent back-and-forth → Claude Code
+   - Long autonomous tasks, set-and-forget → Codex CLI
+   - Large codebase exploration, budget-constrained → Gemini CLI
+   - Heavy MCP/tool integrations → Claude Code
+3. **Present recommendation** with the same format as Mode A.
+4. **Note**: CLI tools and API models are different concerns. A user may use Claude Code (CLI)
+   but call Gemini API for long-document analysis. Recommend combinations when appropriate.
+
 ## Task Categories Quick Reference
 
 | Category | Description | Primary Pick | Budget Pick | Power Pick |
@@ -149,3 +165,4 @@ To refresh, use the smart-search skill or direct web search to find:
 
 ### Reference Files
 - **`references/model-catalog.md`** — Detailed model catalog with capabilities, pricing tiers, context windows, and last-updated timestamps
+- **`references/cli-comparison.md`** — Claude Code, Codex CLI, Gemini CLI feature comparison, strengths, weaknesses, and CP-value recommendations
