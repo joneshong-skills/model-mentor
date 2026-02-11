@@ -107,7 +107,7 @@ When the user asks about coding CLI tools (e.g., "我該用哪個 CLI", "Claude 
 | **Code Generation** | Write new code, implement features | Claude Sonnet 4.5 | Gemini 2.5 Flash | Claude Opus 4.6 |
 | **Code Review / Refactor** | Review PRs, refactor existing code | Claude Sonnet 4.5 | GPT-4.1-mini | Claude Opus 4.6 |
 | **Debugging** | Find and fix bugs | Claude Sonnet 4.5 | Gemini 2.5 Flash | Claude Opus 4.6 |
-| **Math / Reasoning** | Complex logic, math proofs, puzzles | o3 | o4-mini | o3 |
+| **Math / Reasoning** | Complex logic, math proofs, puzzles | o3 | GPT-4.1 mini | o3 |
 | **Long Doc Analysis** | Summarize or analyze 50+ page docs | Gemini 2.5 Pro | Gemini 2.5 Flash | Gemini 2.5 Pro |
 | **Creative Writing** | Stories, marketing copy, blog posts | Claude Opus 4.6 | Claude Sonnet 4.5 | Claude Opus 4.6 |
 | **Translation** | Cross-language translation | GPT-4.1 | GPT-4.1-mini | Claude Opus 4.6 |
@@ -116,7 +116,7 @@ When the user asks about coding CLI tools (e.g., "我該用哪個 CLI", "Claude 
 | **Video Understanding** | Analyze video content | Gemini 2.5 Pro | Gemini 2.5 Flash | Gemini 2.5 Pro |
 | **Real-time Chat** | Low-latency conversational AI | GPT-4o-mini | Gemini 2.5 Flash | GPT-4o |
 | **Agentic / Multi-step** | Tool use, multi-step autonomous tasks | Claude Opus 4.6 | Claude Sonnet 4.5 | Claude Opus 4.6 |
-| **Embeddings / Search** | Semantic search, RAG retrieval | text-embedding-3-large | text-embedding-3-small | Voyage 3.5 |
+| **Embeddings / Search** | Semantic search, RAG retrieval | text-embedding-3-large | text-embedding-3-small | text-embedding-3-large |
 | **Classification** | Categorize text, sentiment analysis | Gemini 2.5 Flash | Claude Haiku 4.5 | GPT-4.1 |
 | **Structured Output** | JSON, schema-based output | GPT-4.1 | GPT-4.1-mini | GPT-4.1 |
 | **Instruction Following** | Complex multi-constraint prompts | Claude Opus 4.6 | Claude Sonnet 4.5 | Claude Opus 4.6 |
@@ -150,9 +150,10 @@ The model catalog (`references/model-catalog.md`) should be refreshed:
 - When the user mentions a model not in the catalog
 
 To refresh, use the smart-search skill or direct web search to find:
-1. New model announcements from Anthropic, OpenAI, Google, Meta, Mistral, and others
+1. New model announcements from Anthropic, OpenAI, and Google
 2. Pricing changes
 3. Notable community benchmarks or evaluations
+4. CLI tool updates (Claude Code, Codex CLI, Gemini CLI)
 
 ## Important Notes
 

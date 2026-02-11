@@ -1,7 +1,8 @@
-# Model Catalog
+# Model Catalog (Paid Providers Only)
 
 > **last_updated**: 2026-02-11
 > **next_review**: 2026-03-11
+> **scope**: Anthropic, OpenAI, Google only (user has paid subscriptions for all three)
 
 ## Anthropic Claude
 
@@ -130,98 +131,48 @@
 - **Best for**: High-volume processing, data extraction, classification, quick summaries, budget-friendly long-document analysis
 - **Note**: Ties with GPT-4o-mini as the cheapest quality option. 1M context gives it an edge for long docs.
 
-### Gemini 2.0 Flash
-- **Tier**: Previous generation (still available)
-- **Input**: ~$0.10/1M
-- **Output**: ~$0.40/1M
-- **Context**: 1M tokens
-- **Cost tier**: $
-- **Latency**: Fast
-- **Strengths**: Even cheaper than 2.5 Flash
-- **Weaknesses**: Superseded by 2.5 Flash in most benchmarks
-- **Best for**: Legacy workloads, extreme cost optimization where quality is secondary
-
----
-
-## Open Source / Alternative Providers
-
-### DeepSeek R1
-- **Tier**: Reasoning specialist (open-source)
-- **Input**: $0.55/1M
-- **Output**: $2.19/1M
-- **Context**: 128K tokens
-- **Cost tier**: $
-- **Latency**: Variable
-- **Strengths**: Strong chain-of-thought reasoning, competitive with o3 on many benchmarks, can self-host
-- **Weaknesses**: Inconsistent on creative tasks, limited multimodal, self-hosting requires significant GPU resources
-- **Best for**: Cost-effective reasoning tasks, self-hosted inference, math and logic
-
-### DeepSeek V3.2
-- **Tier**: General-purpose (open-source)
-- **Input**: $0.28/1M
-- **Output**: $0.42/1M
-- **Context**: 128K tokens
-- **Cost tier**: $ (cheapest quality option)
-- **Latency**: Fast
-- **Strengths**: Extremely cheap, surprisingly good quality for price, can self-host
-- **Weaknesses**: Less reliable on complex tasks, limited tool use support
-- **Best for**: Budget bulk processing, self-hosted deployment, cost-sensitive applications
-
-### Meta Llama 4 Maverick
-- **Tier**: Open-source flagship
-- **Input**: $0.27/1M (via providers)
-- **Output**: $0.85/1M
-- **Context**: 1M tokens
-- **Cost tier**: $
-- **Latency**: Fast (provider-dependent)
-- **Strengths**: Open-source, 1M context, 400B parameters, can self-host, strong community
-- **Weaknesses**: Requires significant compute to self-host, quality varies by provider
-- **Best for**: Self-hosted enterprise, privacy-sensitive applications, large-context budget option
-
-### Mistral Medium 3
-- **Tier**: European mid-range
-- **Input**: $0.40/1M
-- **Output**: $2.00/1M
-- **Context**: 131K+ tokens
-- **Strengths**: EU data residency, sliding window attention, competitive quality
-- **Weaknesses**: Smaller ecosystem, less community tooling
-- **Best for**: EU compliance requirements, moderate-complexity tasks
-
 ---
 
 ## Embeddings Models
 
 | Model | Price/1M tokens | Dimensions | Notes |
 |-------|----------------|------------|-------|
-| text-embedding-3-large (OpenAI) | $0.13 | 3072 | Best quality from OpenAI |
+| text-embedding-3-large (OpenAI) | $0.13 | 3072 | Best quality |
 | text-embedding-3-small (OpenAI) | $0.02 | 1536 | Budget option |
-| Voyage 3.5 (Voyage AI) | $0.06 | 1024 | Excellent for code search |
 | Gemini text-embedding-004 | Free tier available | 768 | Good for getting started |
 
 ---
 
 ## Cost Comparison Matrix (1M input + 1M output)
 
-| Model | Total Cost | Quality Tier | Speed |
-|-------|-----------|-------------|-------|
-| DeepSeek V3.2 | $0.70 | Good | Fast |
-| GPT-4o-mini | $0.75 | Good | Fast |
-| Gemini 2.5 Flash | $0.75 | Good | Fast |
-| Llama 4 Maverick | $1.12 | Good | Fast |
-| GPT-4.1 mini | $2.00 | Good+ | Fast |
-| o3 (base) | $2.00 | Excellent (reasoning) | Variable |
-| DeepSeek R1 | $2.74 | Good+ (reasoning) | Variable |
-| Gemini 2.5 Pro | $11.25 | Excellent | Medium |
-| GPT-4o | $12.50 | Excellent | Medium |
-| GPT-4.1 | $10.00 | Excellent | Medium |
-| Claude Sonnet 4.5 | $18.00 | Excellent | Medium |
-| Claude Opus 4.6 | $30.00 | Best | Slow |
+| Model | Total Cost | Quality Tier | Speed | Best CP Value For |
+|-------|-----------|-------------|-------|-------------------|
+| GPT-4o-mini | $0.75 | Good | Fast | High-volume simple tasks |
+| Gemini 2.5 Flash | $0.75 | Good | Fast | Long docs on a budget |
+| GPT-4.1 mini | $2.00 | Good+ | Fast | Structured output on a budget |
+| o3 (base) | $2.00* | Excellent (reasoning) | Variable | Math & logic (*reasoning tokens extra) |
+| Claude Haiku 4.5 | $6.00 | Good+ | Fast | Classification & routing |
+| GPT-4.1 | $10.00 | Excellent | Medium | Tool use & structured output |
+| Gemini 2.5 Pro | $11.25 | Excellent | Medium | Ultra-long docs & video |
+| GPT-4o | $12.50 | Excellent | Medium | Multimodal (image+audio) |
+| Claude Sonnet 4.5 | $18.00 | Excellent | Medium | Code quality & daily dev |
+| Claude Opus 4.6 | $30.00 | Best | Slow | Critical code & complex reasoning |
+
+### CP Value Sweet Spots (Recommended defaults)
+
+- **Cheapest usable**: GPT-4o-mini / Gemini 2.5 Flash ($0.75) — pick Flash if context > 128K
+- **Best all-rounder**: Claude Sonnet 4.5 ($18) — highest code quality per dollar
+- **Best for long docs**: Gemini 2.5 Pro ($11.25) — 2M context, no contest
+- **Best for reasoning**: o3 ($2 base) — unmatched on math/logic
+- **Best for tool use**: GPT-4.1 ($10) — most mature function calling
+- **When quality is non-negotiable**: Claude Opus 4.6 ($30) — best overall but pricey
 
 ---
 
 ## Changelog
 
 ### 2026-02-11
-- Initial catalog creation
-- Added all major providers: Anthropic, OpenAI, Google, DeepSeek, Meta, Mistral
-- Pricing verified via official documentation and aggregators
+- Initial catalog creation (full version on main branch)
+- Overfit to paid providers: Anthropic, OpenAI, Google only
+- Added CP Value Sweet Spots section
+- Removed: DeepSeek, Meta Llama, Mistral, Voyage AI
