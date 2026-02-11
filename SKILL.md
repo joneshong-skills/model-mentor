@@ -8,6 +8,7 @@ description: >-
   mentions choosing an LLM or coding CLI tool, or discusses
   selecting AI models or CLI tools for specific tasks.
 version: 0.1.1
+tools: Read, WebSearch
 argument-hint: <task description or "update" to refresh catalog>
 ---
 
