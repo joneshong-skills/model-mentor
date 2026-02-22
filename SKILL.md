@@ -18,6 +18,16 @@ Recommend the most cost-effective LLM model or coding CLI tool for a given task.
 Recommendations balance capability, price, speed, and task fit — not just raw benchmarks or lowest cost.
 Covers both API models (for building applications) and CLI tools (for developer workflows).
 
+## Agent Delegation
+
+Delegate model comparison research and catalog refresh tasks to the `researcher` agent to keep main context lean during multi-model lookups.
+
+```
+Main context (task classification + final recommendation)
+  └─ Task(subagent_type: researcher, prompt: "Search for the latest benchmarks and pricing for {model A} vs {model B} as of 2026. Return ONLY a comparison table: pricing, context window, key strengths, key weaknesses.")
+  └─ Task(subagent_type: researcher, prompt: "Find new LLM model announcements from Anthropic, OpenAI, and Google in the last 30 days. Return ONLY model name, release date, and one-line capability summary per model.")
+```
+
 ## Core Philosophy
 
 - **CP Value First**: The best model is not the most expensive or the fastest — it is the one
@@ -155,6 +165,25 @@ To refresh, use the smart-search skill or direct web search to find:
 - Recommendations are guidance, not gospel. Always mention that the user's specific context matters.
 - For niche tasks (e.g., medical, legal, specific languages), note that specialized fine-tuned models may outperform general-purpose ones.
 - When a task spans multiple categories, weight the most demanding subtask highest.
+
+## Continuous Improvement
+
+This skill evolves with each use. After every invocation:
+
+1. **Reflect** — Identify what worked, what caused friction, and any unexpected issues
+2. **Record** — Append a concise lesson to `lessons.md` in this skill's directory
+3. **Refine** — When a pattern recurs (2+ times), update SKILL.md directly
+
+### lessons.md Entry Format
+
+```
+### YYYY-MM-DD — Brief title
+- **Friction**: What went wrong or was suboptimal
+- **Fix**: How it was resolved
+- **Rule**: Generalizable takeaway for future invocations
+```
+
+Accumulated lessons signal when to run `/skill-optimizer` for a deeper structural review.
 
 ## Additional Resources
 
