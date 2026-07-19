@@ -1,15 +1,10 @@
 ---
 name: model-mentor
-description: >-
-  This skill should be used when the user asks to "recommend a model",
-  "推薦模型", "哪個模型適合", "which model should I use",
-  "模型比較", "model comparison", "最新模型有哪些",
-  "我要做 X 用什麼模型", "推薦 CLI", "哪個 CLI 好用",
-  mentions choosing an LLM or coding CLI tool, or discusses
-  selecting AI models or CLI tools for specific tasks.
+description: "model, mentor, recommend, comparison, 推薦模型, 哪個模型適合, 模型比較, 最新模型有哪些"
 version: 0.1.1
 tools: Read, WebSearch
 argument-hint: <task description or "update" to refresh catalog>
+disable-model-invocation: true
 ---
 
 # Model Mentor
