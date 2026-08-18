@@ -4,7 +4,6 @@ description: "model, mentor, recommend, comparison, 推薦模型, 哪個模型�
 version: 0.1.1
 tools: Read, WebSearch
 argument-hint: <task description or "update" to refresh catalog>
-disable-model-invocation: true
 ---
 
 # Model Mentor
